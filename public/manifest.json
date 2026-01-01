@@ -2,7 +2,7 @@
   "name": "RD Solar - Gerador de Orçamentos",
   "short_name": "RDSolar",
   "description": "Gerador de Orçamentos Solar",
-  "start_url": "./index.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#2196F3",
