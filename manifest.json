@@ -1,6 +1,6 @@
 {
-  "short_name": "Orçamento Solar",
-  "name": "Gerador de Orçamentos Solar",
+  "short_name": "RD Solar",
+  "name": "RD Solar - Gerador de Orçamentos",
   "description": "Aplicativo para geração de orçamentos de energia solar.",
   "icons": [
     {
@@ -10,7 +10,7 @@
       "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#2196F3",
   "background_color": "#ffffff"
