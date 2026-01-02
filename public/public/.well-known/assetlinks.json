@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "io.github.rdengenharia.geradororsolar.v1",
+    "sha256_cert_fingerprints": ["9E:ED:0C:86:AD:76:C3:1B:30:E7:D2:D8:02:28:B9:C5:D5:D4:64:D9:5A:96:1A:29:94:3C:E9:60:2A:B1:3A:CA"]
+  }
+}]
