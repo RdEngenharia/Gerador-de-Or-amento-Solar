@@ -4,15 +4,16 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
-  // IMPORTANTE: Mudamos de './' para o caminho real da subpasta
   base: '/Gerador-de-Or-amento-Solar/', 
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './'),
+      // Isso ajuda o Vite a encontrar o caminho /src de qualquer lugar
+      '@': path.resolve(__dirname, './src'),
     },
   },
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    emptyOutDir: true,
   }
 });
