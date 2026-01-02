@@ -28,20 +28,20 @@ jobs:
           
       - name: Create AssetLinks Manually
         run: |
-          # 1. Cria a pasta na marra dentro da pasta de saída (dist)
+          # Cria a pasta na marra dentro da pasta de saída
           mkdir -p ./dist/.well-known
           
-          # 2. Escreve o conteúdo do JSON com o Package Name v1
+          # Escreve o conteúdo do JSON exatamente como você enviou (v3 e novo SHA)
           echo '[{
             "relation": ["delegate_permission/common.handle_all_urls"],
             "target": {
               "namespace": "android_app",
-              "package_name": "io.github.rdengenharia.geradororsolar.v1",
-              "sha256_cert_fingerprints": ["9E:ED:0C:86:AD:76:C3:1B:30:E7:D2:D8:02:28:B9:C5:D5:D4:64:D9:5A:96:1A:29:94:3C:E9:60:2A:B1:3A:CA"]
+              "package_name": "io.github.rdengenharia.orcamentosolar.v3",
+              "sha256_cert_fingerprints": ["E8:FC:02:00:7A:A8:01:E3:19:4E:F3:01:15:BF:6A:D0:B7:EF:B6:99:59:C8:64:30:F5:CA:31:E7:43:F4:0F:15"]
             }
           }]' > ./dist/.well-known/assetlinks.json
           
-          # 3. Cria o arquivo .nojekyll para o GitHub não bloquear a pasta
+          # Garante o .nojekyll
           touch ./dist/.nojekyll
 
       - name: Upload artifact
