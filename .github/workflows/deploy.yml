@@ -26,22 +26,24 @@ jobs:
           npm install
           npm run build
           
-      - name: Create AssetLinks Manually
+      - name: Create AssetLinks
         run: |
-          # Cria a pasta .well-known na pasta de saída (dist)
+          # Cria a pasta .well-known dentro da pasta de build (dist)
           mkdir -p ./dist/.well-known
           
-          # Escreve o conteúdo do JSON com os dados da versão v4
-          echo '[{
+          # Gera o arquivo JSON com os dados da v4
+          cat <<EOF > ./dist/.well-known/assetlinks.json
+          [{
             "relation": ["delegate_permission/common.handle_all_urls"],
             "target": {
               "namespace": "android_app",
               "package_name": "io.github.rdengenharia.orcamentosolar.v4",
               "sha256_cert_fingerprints": ["CF:D3:EC:54:40:B0:08:87:5B:84:CF:B7:16:B2:5A:AF:81:A0:DE:28:52:92:B4:AC:68:BF:6A:77:48:B4:9C:7E"]
             }
-          }]' > ./dist/.well-known/assetlinks.json
+          }]
+          EOF
           
-          # Garante o .nojekyll para evitar conflitos com o Jekyll do GitHub
+          # Cria o .nojekyll para o GitHub não ignorar pastas com ponto (.)
           touch ./dist/.nojekyll
 
       - name: Upload artifact
