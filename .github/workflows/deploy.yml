@@ -28,20 +28,20 @@ jobs:
           
       - name: Create AssetLinks Manually
         run: |
-          # Cria a pasta na marra dentro da pasta de saída
+          # Cria a pasta .well-known na pasta de saída (dist)
           mkdir -p ./dist/.well-known
           
-          # Escreve o conteúdo do JSON exatamente como você enviou (v3 e novo SHA)
+          # Escreve o conteúdo do JSON com os dados da versão v4
           echo '[{
             "relation": ["delegate_permission/common.handle_all_urls"],
             "target": {
               "namespace": "android_app",
-              "package_name": "io.github.rdengenharia.orcamentosolar.v3",
-              "sha256_cert_fingerprints": ["E8:FC:02:00:7A:A8:01:E3:19:4E:F3:01:15:BF:6A:D0:B7:EF:B6:99:59:C8:64:30:F5:CA:31:E7:43:F4:0F:15"]
+              "package_name": "io.github.rdengenharia.orcamentosolar.v4",
+              "sha256_cert_fingerprints": ["CF:D3:EC:54:40:B0:08:87:5B:84:CF:B7:16:B2:5A:AF:81:A0:DE:28:52:92:B4:AC:68:BF:6A:77:48:B4:9C:7E"]
             }
           }]' > ./dist/.well-known/assetlinks.json
           
-          # Garante o .nojekyll
+          # Garante o .nojekyll para evitar conflitos com o Jekyll do GitHub
           touch ./dist/.nojekyll
 
       - name: Upload artifact
