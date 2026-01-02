@@ -26,19 +26,22 @@ jobs:
           npm install
           npm run build
           
-      - name: Force AssetLinks into Dist
+      - name: Create AssetLinks Manually
         run: |
-          # Cria a pasta .well-known dentro da pasta dist (onde o build foi gerado)
+          # Cria a pasta na marra
           mkdir -p ./dist/.well-known
           
-          # Tenta copiar o arquivo de diferentes locais possíveis para garantir o sucesso
-          if [ -f "public/.well-known/assetlinks.json" ]; then
-            cp public/.well-known/assetlinks.json ./dist/.well-known/assetlinks.json
-          elif [ -f ".well-known/assetlinks.json" ]; then
-            cp .well-known/assetlinks.json ./dist/.well-known/assetlinks.json
-          fi
+          # Escreve o conteúdo do JSON direto no arquivo final
+          echo '[{
+            "relation": ["delegate_permission/common.handle_all_urls"],
+            "target": {
+              "namespace": "android_app",
+              "package_name": "io.github.rdengenharia.geradororsolar.v1",
+              "sha256_cert_fingerprints": ["9E:ED:0C:86:AD:76:C3:1B:30:E7:D2:D8:02:28:B9:C5:D5:D4:64:D9:5A:96:1A:29:94:3C:E9:60:2A:B1:3A:CA"]
+            }
+          }]' > ./dist/.well-known/assetlinks.json
           
-          # Cria o arquivo .nojekyll na dist para o GitHub não esconder a pasta
+          # Garante o .nojekyll
           touch ./dist/.nojekyll
 
       - name: Upload artifact
