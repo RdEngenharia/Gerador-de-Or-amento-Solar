@@ -7,13 +7,12 @@ export default defineConfig({
   base: '/Gerador-de-Or-amento-Solar/', 
   resolve: {
     alias: {
-      // Isso ajuda o Vite a encontrar o caminho /src de qualquer lugar
-      '@': path.resolve(__dirname, './src'),
+      // Como não tem pasta src, o @ aponta para a raiz
+      '@': path.resolve(__dirname, './'),
     },
   },
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    emptyOutDir: true,
   }
 });
